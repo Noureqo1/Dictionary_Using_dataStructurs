@@ -42,9 +42,9 @@ int LinkedList::search(const string& word) const {
     return -1;
 }
 
-int LinkedList::startsWith(const string& prefix) const
+vector<string> LinkedList::startsWith(const string& prefix) const
 {
-    LinkedList matching;
+    vector<string> matching;
     Node* current = head;
     int count = 0;
 
@@ -72,8 +72,8 @@ int LinkedList::startsWith(const string& prefix) const
 
         if (check)
         {
-            cout << word << " Has the condition" << endl;
-            matching.insert(word);
+            /*cout << word << " Has the condition" << endl;*/
+            matching.push_back(word);
             count++;
         }
         // TEST
@@ -82,11 +82,20 @@ int LinkedList::startsWith(const string& prefix) const
         current = current->next;
     }
 
-    return count;
+    if (count != 0) {
+        cout << "\nnumber of words found in the list tat starts with " << prefix << " is " << count << endl;
+    }
+    else {
+        cout << "\nno words found in the list tat starts with " << prefix << endl;
+    }
+
+    cout << "\nAll matching words that has the condition" << endl;
+    return matching;
 }
 
-int LinkedList::EndsWith(const string& prefix) const
+vector<string> LinkedList::EndsWith(const string& prefix) const
 {
+    vector<string> matching;
     Node* current = head;
     int count = 0;
 
@@ -94,7 +103,6 @@ int LinkedList::EndsWith(const string& prefix) const
 
     while (current != nullptr)
     {
-        LinkedList matching;
         bool check = false;
 
         string word = current->data;
@@ -130,8 +138,8 @@ int LinkedList::EndsWith(const string& prefix) const
 
         if (check)
         {
-            cout << word << " Has the condition" << endl;
-            matching.insert(word);
+            /*cout << word << " Has the condition" << endl;*/
+            matching.push_back(word);
             count++;
         }
 
@@ -141,12 +149,22 @@ int LinkedList::EndsWith(const string& prefix) const
         current = current->next;
     }
 
-    return count;
+    if (count != 0) {
+        cout << "\nnumber of words found in the list tat Ends with " << prefix << " is " << count << endl;
+    }
+    else {
+        cout << "\nno words found in the list tat Ends with " << prefix << endl;
+    }
+
+
+    cout << "\nAll matching words that has the condition" << endl;
+
+    return matching;
 }
 
-int LinkedList::Find(const string& prefix) const
+vector<string> LinkedList::Find(const string& prefix) const
 {
-    LinkedList matching;
+    vector<string> matching;
     Node* current = head;
     int count = 0;
 
@@ -161,7 +179,7 @@ int LinkedList::Find(const string& prefix) const
         for (i = 0; i <= word.length(); i++)
         {    
              // TEST
-            cout << word[i] << " " << prefix[y] << endl;
+            //cout << word[i] << " " << prefix[y] << endl;
 
             if (word[i] == prefix[y])
             {
@@ -175,16 +193,26 @@ int LinkedList::Find(const string& prefix) const
         if (check == prefix.length()+1)
         {
             count++;
-            matching.insert(word);
-            cout << word << " Has the condition" << endl;
+            matching.push_back(word);
+            /*cout << word << " Has the condition" << endl;*/
         }
 
          /*TEST*/
-        cout << "yeb \n";
+        //cout << "yeb \n";
 
         current = current->next;
     }
 
-    return count;
+    if (count != 0) {
+        cout << "\nnumber of words that contains " << prefix << " is " << count << endl;
+    }
+    else {
+        cout << "\nno words found that contains " << prefix << endl;
+    }
+
+
+    cout << "\nAll matching words that has the condition" << endl;
+
+    return matching;
 }
 

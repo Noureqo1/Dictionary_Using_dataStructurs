@@ -2,6 +2,15 @@
 #include "LinkedList.h"
 
 
+void printVector(const std::vector<string>& vec)
+{
+    for (const string& item : vec) {
+        std::cout << item << " ";
+    }
+    std::cout << std::endl;
+}
+
+
 void search(LinkedList list)
 {
     string word;
@@ -24,14 +33,7 @@ void StartsWith(LinkedList list)
     cout << "Enter the prefix to search: \n";
     cin >> prefix;
 
-    int index = list.startsWith(prefix);
-
-    if (index != 0) {
-        cout << "number of words found in the list tat starts with " << prefix<< " is " << index << endl;
-    }
-    else {
-        cout  << "no words found in the list tat starts with " << prefix << endl;
-    }
+    printVector(list.startsWith(prefix));
 }
 
 void EndsWith(LinkedList list)
@@ -40,14 +42,7 @@ void EndsWith(LinkedList list)
     cout << "Enter the Ending to search: \n";
     cin >> prefix;
 
-    int index = list.EndsWith(prefix);
-
-    if (index != 0) {
-        cout << "number of words found in the list tat Ends with " << prefix << " is " << index << endl;
-    }
-    else {
-        cout << "no words found in the list tat Ends with " << prefix << endl;
-    }
+    printVector(list.EndsWith(prefix));
 }
 
 
@@ -57,14 +52,7 @@ void Find(LinkedList list)
     cout << "Enter the Keyword to find: \n";
     cin >> prefix;
 
-    int index = list.Find(prefix);
-
-    if (index != 0) {
-        cout << "number of words that contains " << prefix << " is " << index << endl;
-    }
-    else {
-        cout << "no words found that contains " << prefix << endl;
-    }
+    printVector(list.Find(prefix));
 }
 
 void Display()

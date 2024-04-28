@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 #include <iostream>
 
 using namespace std;
@@ -18,9 +19,9 @@ public:
 
     void insert(const string& data);
     int search(const string& word) const;
-    int startsWith(const string& prefix) const;
-    int EndsWith(const string& prefix) const;
-    int Find(const string& prefix) const;
+    vector<string> startsWith(const string& prefix) const;
+    vector<string> EndsWith(const string& prefix) const;
+    vector<string> Find(const string& prefix) const;
 
 private:
     Node* head;
